@@ -1,4 +1,5 @@
 class User < ApplicationRecord
-  has_many :orders
-  has_many :ordered_items, through: :orders, source: :food_item
+  has_secure_password
+  has_many :orders, dependent: :destroy
+  has_many :ordered_items, through: :orders, source: :menu_item
 end
