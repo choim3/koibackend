@@ -9,6 +9,8 @@
 User.destroy_all
 MenuItem.destroy_all
 Order.destroy_all
+
+
 #
 matt = User.create(email: "matt@email.com", name: "Matt", password: "123")
 
@@ -20,4 +22,5 @@ dragon = MenuItem.create(name: "Dragon", desc: "Broiled fresh water eel on top o
 stryker = MenuItem.create(name: "Stryker", desc: "Salmon & masago on top of spicy tuna roll with sweet & spicy mayo sauce", price: 12.99)
 
 
-# order1 = Order.create(user_id: matt.id, menu_item_id: kiss_of_fire.id, order_number: 321)
+
+ order1 = Order.create(user_id: matt.id, is_ordered: false, order_number: 321)
