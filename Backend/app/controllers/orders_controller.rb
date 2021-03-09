@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  skip_before_action :authorized, only: [:index, :show, :create]
+  skip_before_action :authorized, only: [:index, :show, :create, :update]
 
   def index
       orders = Order.all
@@ -16,9 +16,16 @@ class OrdersController < ApplicationController
     render json: order
   end
 
+  def update
+    byebug
+      order = Order.find_by(id: params[:id])
+      order.update(order_params)
+      render json: order
+  end
+
   private
 
   def order_params
-    params.permit(:user_id, :menu_item_id)
+    params.permit(:order_id, :is_ordered)
   end
 end
